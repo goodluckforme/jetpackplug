@@ -1,0 +1,1 @@
+viewModel { ${pageName}ViewModel(get()) }
