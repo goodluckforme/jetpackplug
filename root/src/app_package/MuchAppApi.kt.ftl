@@ -138,6 +138,8 @@ class AppApi() {
         return Retrofit.Builder()
             .baseUrl("http://$ip:$port/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // 添加Rx适配器
+            //.addCallAdapterFactory(LiveDataCallAdapterFactory())//LiveData 适配器
+            //.addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build())) Moshi 适配器
             .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
             .client(getOKClient().build())
     }

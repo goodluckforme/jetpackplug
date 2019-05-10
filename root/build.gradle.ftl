@@ -21,6 +21,23 @@ android {
         versionCode 101
         versionName "1.0.1"
         multiDexEnabled true
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        //导出数据库
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
+        vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            abiFilters "armeabi-v7a", "x86", "arm64-v8a"
+        }
+
+       
+       //<#noparse> buildConfigField 'String', 'API_KEY', "\"${propOrEmpty('API_KEY')}\""</#noparse>
     }
     signingConfigs {
         debug {

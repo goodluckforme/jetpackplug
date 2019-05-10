@@ -17,11 +17,22 @@
     <application
             android:allowBackup="true"
             android:icon="@mipmap/logo"
+            android:networkSecurityConfig="@xml/network_security_config"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/logo"
+			android:name=".App"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="${ativityPackageName}.${activityClass}" android:screenOrientation="portrait">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+           android:authorities="<#noparse>$</#noparse>{applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+         <activity android:name="${ativityPackageName}.${activityClass}" android:screenOrientation="portrait">
             <#if needInintBase>
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN"/>
