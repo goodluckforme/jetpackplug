@@ -49,6 +49,9 @@
 <mkdir at="${muchAppOut}" />                  
 <instantiate from="root/build.gradle.ftl"
                    to="${muchAppOut}/build_.gradle" />
+				   				  
+<instantiate from="root/gradle.properties.ftl"
+                   to="${escapeXmlAttribute(topOut)}/gradle_.properties" />
 
 <instantiate from="root/project_build.gradle.ftl"
                    to="${escapeXmlAttribute(topOut)}/build_.gradle" />
